@@ -97,16 +97,41 @@
             let vetorString = document.getElementById("Somatorio").value;
             let vetor = vetorString.split(" ").map(Number);
             var soma = parseInt(0);
-            let respostaSomatorio1=("Dado o vetor:"+vetor);
-           
+            let respostaSomatorio1 = ("Dado o vetor:" + vetor);
+
             for (var x = 0; x < vetor.length; x++) {
                 soma = soma + vetor[x];
             }
 
-            let respostaSomatorio2=("O somatório é: " + soma);
+            let respostaSomatorio2 = ("O somatório é: " + soma);
 
             document.getElementById("SomatorioResposta1").innerHTML = respostaSomatorio1;
             document.getElementById("SomatorioResposta2").innerHTML = respostaSomatorio2;
+        }
+
+        function rodarMDC() {
+            let vetorString = document.getElementById("MDC").value;
+            let vetor = vetorString.split(" ").map(Number);
+
+            const a=vetor[0];
+            const b=vetor[1];
+
+            const menor = (a < b) ? a : b;
+
+            let mdc = menor;
+
+            while (mdc > 0) {
+
+                if (a % mdc === 0 && b % mdc === 0) {
+                    break;
+                } else {
+                    mdc--;
+                }
+            }
+            
+            let respostaMDC = ("O máximo divisor comum de " + a + " e " + b + " é " + mdc);
+
+            document.getElementById("MDCResposta").innerHTML = respostaMDC;
         }
     </script>
 </head>
@@ -173,6 +198,29 @@
                     <button type="button" onclick="rodarSomatorio()">Rodar</button>
                     <div id="SomatorioResposta1"></div>
                     <div id="SomatorioResposta2"></div>
+                </fieldset>
+            </form>
+        </section>
+        <section>
+            <h3>Soma de números - Javascript</h3>
+            <form>
+                <fieldset>
+                    <legend>Digite os números que gostaria de somar, separados por um espaço</legend>
+                    <input type="text" id="Somatorio" name="inputSomatorioJS" placeholder="Ex:2 2" required>
+                    <button type="button" onclick="rodarSomatorio()">Rodar</button>
+                    <div id="SomatorioResposta1"></div>
+                    <div id="SomatorioResposta2"></div>
+                </fieldset>
+            </form>
+        </section>
+        <section>
+            <h3>Máximo Divisor Comum - Javascript</h3>
+            <form>
+                <fieldset>
+                    <legend>Digite os dois números que se quer o MDC, separados por um espaço</legend>
+                    <input type="text" id="MDC" name="inputMDCJS" placeholder="Ex:75 105" required>
+                    <button type="button" onclick="rodarMDC()">Rodar</button>
+                    <div id="MDCResposta"></div>
                 </fieldset>
             </form>
         </section>
