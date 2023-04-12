@@ -92,6 +92,22 @@
             document.getElementById("ContagemResposta1").innerHTML = respostaContagem1;
             document.getElementById("ContagemResposta2").innerHTML = respostaContagem2;
         }
+
+        function rodarSomatorio() {
+            let vetorString = document.getElementById("Somatorio").value;
+            let vetor = vetorString.split(" ").map(Number);
+            var soma = parseInt(0);
+            let respostaSomatorio1=("Dado o vetor:"+vetor);
+           
+            for (var x = 0; x < vetor.length; x++) {
+                soma = soma + vetor[x];
+            }
+
+            let respostaSomatorio2=("O somatório é: " + soma);
+
+            document.getElementById("SomatorioResposta1").innerHTML = respostaSomatorio1;
+            document.getElementById("SomatorioResposta2").innerHTML = respostaSomatorio2;
+        }
     </script>
 </head>
 
@@ -145,6 +161,18 @@
                     <button type="button" onclick="rodarContagem()">Rodar</button>
                     <div id="ContagemResposta1"></div>
                     <div id="ContagemResposta2"></div>
+                </fieldset>
+            </form>
+        </section>
+        <section>
+            <h3>Soma de números - Javascript</h3>
+            <form>
+                <fieldset>
+                    <legend>Digite os números que gostaria de somar, separados por um espaço</legend>
+                    <input type="text" id="Somatorio" name="inputSomatorioJS" placeholder="Ex:2 2" required>
+                    <button type="button" onclick="rodarSomatorio()">Rodar</button>
+                    <div id="SomatorioResposta1"></div>
+                    <div id="SomatorioResposta2"></div>
                 </fieldset>
             </form>
         </section>
